@@ -1,0 +1,45 @@
+:root{
+  --bg:#f3f6f9; --card:#ffffff; --muted:#6b7280; --accent:#0ea5a4; --accent-dark:#0b9b90; --danger:#ef4444;
+  --glass: rgba(255,255,255,0.7);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+body{background:linear-gradient(180deg,#eef2f7,#f8fafc);color:#0f172a}
+.app{max-width:980px;margin:18px auto;padding:16px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:6px}
+.logo{font-weight:800;color:var(--accent);font-size:20px}
+.tag{font-size:13px;color:var(--muted)}
+.sub{margin:6px 0 12px;color:var(--muted)}
+.card{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);border:1px solid rgba(15,23,42,0.03);margin-bottom:12px}
+.controls{display:flex;gap:10px;align-items:end;flex-wrap:wrap}
+.select-wrap{min-width:180px;flex:1}
+.lbl{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #e6eef2;background:var(--glass);font-size:15px}
+.btns{display:flex;gap:8px}
+.btn{padding:10px 14px;border-radius:10px;border:0;font-weight:600;cursor:pointer}
+.btn.primary{background:var(--accent);color:white}
+.btn.geo{background:#2563eb;color:white}
+.muted-note{margin-top:8px;color:var(--muted);font-size:13px}
+.error{color:var(--danger);margin-top:8px;font-size:14px}
+
+/* metrics grid */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:6px}
+.metric{text-align:center;padding:14px;border-radius:10px}
+.metric .label{font-size:13px;color:var(--muted);margin-bottom:6px}
+.metric .value{font-size:20px;font-weight:800;color:#0f172a}
+
+/* charts */
+.chart-card{padding:10px}
+.chart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.small{font-size:13px;color:var(--muted)}
+
+/* responsive */
+@media(max-width:780px){
+  .cards{grid-template-columns:repeat(1,1fr)}
+  .controls{flex-direction:column;align-items:stretch}
+  .btns{justify-content:space-between}
+}
+
+/* footer */
+footer{margin-top:8px;color:var(--muted);font-size:13px}
+code{background:#f3f4f6;padding:2px 6px;border-radius:4px;font-size:13px}

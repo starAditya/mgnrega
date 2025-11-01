@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>हमारी आवाज़, हमारे अधिकार — MGNREGA (UP)</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="logo">हमारी आवाज़, हमारे अधिकार</div>
+      <div class="tag">MGNREGA — उत्तर प्रदेश</div>
+    </header>
+
+    <p class="sub">आपका जिला चुनें — सरल हिंदी में रिपोर्ट और तुलना</p>
+
+    <div class="card controls-card">
+      <div class="controls">
+        <div class="select-wrap">
+          <label class="lbl">राज्य</label>
+          <select id="stateSelect" aria-label="State select">
+            <option selected>Uttar Pradesh</option>
+          </select>
+        </div>
+
+        <div class="select-wrap">
+          <label class="lbl">जिला</label>
+          <select id="districtSelect" aria-label="District select">
+            <option>— जिला चुनें —</option>
+          </select>
+        </div>
+
+        <div class="btns">
+          <button class="btn geo" id="geoBtn">📍 लोकेशन से चुनें</button>
+          <button class="btn primary" id="getBtn">डेटा दिखाओ</button>
+        </div>
+      </div>
+
+      <div id="status" class="muted-note">API base: <span id="apiBaseSpan">/api</span></div>
+      <div id="error" class="error" role="alert" style="display:none"></div>
+    </div>
+
+    <main id="resultArea" style="display:none">
+      <section class="cards">
+        <div class="card metric">
+          <div class="label">👷 इस महीने काम पाने वाले (परिवार)</div>
+          <div id="m_house" class="value">—</div>
+        </div>
+
+        <div class="card metric">
+          <div class="label">👤 कुल व्यक्ति-दिवस (person-days)</div>
+          <div id="m_pd" class="value">—</div>
+        </div>
+
+        <div class="card metric">
+          <div class="label">💰 कुल भुगतान (₹)</div>
+          <div id="m_pay" class="value">—</div>
+        </div>
+
+        <div class="card metric">
+          <div class="label">👩 महिला भागीदारी (%)</div>
+          <div id="m_female" class="value">—</div>
+        </div>
+      </section>
+
+      <section class="card chart-card">
+        <div class="chart-head">
+          <h3>पिछले 12 महीनों की प्रवृत्ति</h3>
+          <div class="small">लाइन: व्यक्ति-दिवस • बार: काम पाने वाले परिवार</div>
+        </div>
+        <canvas id="trendChart" aria-label="Trend chart" height="160"></canvas>
+      </section>
+
+      <section class="card chart-card">
+        <h3>पिछले 8 महीनों तुलना (बार)</h3>
+        <canvas id="barChart" aria-label="Bar chart" height="140"></canvas>
+      </section>
+
+      <div class="card">
+        <div class="notes">
+          <strong>नोट:</strong> अगर वास्तविक API उपलब्ध न हो तो स्थानीय नमूना डेटा दिखाया जाता है। लोकेशन सुविधा OpenStreetMap Nominatim इस्तेमाल करती है — प्रोडक्शन में paid geocoding लें।
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      Developed as frontend demo for UP. Configure <code>API_BASE</code> in <code>app.js</code> to point to your backend.
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
